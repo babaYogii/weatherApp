@@ -34,7 +34,7 @@ const MainComponent = (location) => {
         lang: 'en_US'
       },
       headers: {
-        'X-RapidAPI-Key': 'de6ab24f04msh131d8b9233f27a2p160f37jsn2809d354a633',
+        'X-RapidAPI-Key': '6f45ab08afmshd00259be7cf8d30p188666jsneb0539fc4f03',
         'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
       }
     };
