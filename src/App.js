@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button, FormControlLabel, FormGroup, Grid, Switch, Typography } from '@mui/material'
+import { Button, FormControlLabel, FormGroup, Grid, Switch } from '@mui/material'
 import MainComponent from './Component/MainComponent'
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
 
 
   useEffect(() => {
-    searchLocation()
+    // searchLocation()
   }, [farenhite,location])
 
   console.log(data.coord)
