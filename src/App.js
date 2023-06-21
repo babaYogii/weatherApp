@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import { Button, FormControlLabel, FormGroup, Grid, Switch } from '@mui/material'
 import MainComponent from './Component/MainComponent'
@@ -11,7 +11,7 @@ function App() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`
   const url1 = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=895284fb2d2c50a520ea537456963d9c`
 
-  const searchLocation = (event) => {
+  const searchLocation = useCallback((event) => {
     try {
       if (farenhite) {
         axios.get(url).then((response) => {
@@ -32,12 +32,12 @@ function App() {
       return error;
     }
 
-  }
+  },[farenhite,url,url1])
 
 
   useEffect(() => {
-    // searchLocation()
-  }, [farenhite,location])
+    searchLocation()
+  }, [location,searchLocation])
 
   console.log(data.coord)
 
