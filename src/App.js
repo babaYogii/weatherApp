@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button, FormControlLabel, FormGroup, Switch } from '@mui/material'
-import { FormControl } from '@mui/base'
+import { Button, FormControlLabel, FormGroup, Grid, Switch, Typography } from '@mui/material'
+import MainComponent from './Component/MainComponent'
 
 function App() {
   const [data, setData] = useState({})
@@ -17,15 +17,16 @@ function App() {
         axios.get(url).then((response) => {
           setData(response.data)
           console.log(response.data)
+          return response.data;
         })
-        // setLocation('')
       } else {
         axios.get(url1).then((response) => {
           setData(response.data)
           console.log(response.data)
+          return response.data;
         })
-        // setLocation('')
       }
+      
     }
     catch (error) {
       return error;
@@ -36,22 +37,23 @@ function App() {
 
   useEffect(() => {
     searchLocation()
-  }, [farenhite])
+  }, [farenhite,location])
 
-  
+  console.log(data.coord)
 
   const handelChange = () => {
     setFarenhite(!farenhite);
-    // setLocation('');
   }
 
   return (
+
+    
     <div className="app">
-      <div className="search">
+    
+    <div className="search">
         <input
           value={location}
           onChange={event => setLocation(event.target.value)}
-          // onKeyPress={searchLocation}
           placeholder='Enter Location'
           type="text" />
 
@@ -60,23 +62,34 @@ function App() {
         ,borderRadius:'12px'
         ,"&:hover": {backgroundColor: "rgba(255,255,255, 0.1);",border:"0.5px solid yellow"}
       
-      }}>Get weather</Button>
+      }}>Get Details</Button>
 
       </div>
-      <FormGroup sx={{alignContent:'center'}}>
+
+
+
+      <Grid container spacing={2}
+    sx={{overscrollBehaviorInline:'contain',height:'90%', overflow:'auto','&::-webkit-scrollbar': {
+      width: '0.1em',
+      backgroundColor: '#F5F5F5',
+    },}}
+      
+      >
+        <Grid item xs={4}  >
+          { data &&
+        <FormGroup sx={{alignContent:'center'}}>
           <FormControlLabel
 
             control={<Switch
               checked={farenhite}
               onChange={handelChange}
-            // label={farenhite ? 'Farenhite':"Degree"}
             />}
 
             label={farenhite ? "Farenhite" : "Degree"}
 
           />
         </FormGroup>
-
+}
 
       {farenhite ?
         <div className="container">
@@ -139,6 +152,19 @@ function App() {
             </div>
           }
         </div>}
+
+        </Grid>
+        <Grid item xs={8}  >
+         
+         
+            <MainComponent location={location}/>
+        
+
+        </Grid>
+
+      </Grid>
+      
+      
     </div>
   );
 }
