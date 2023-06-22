@@ -68,7 +68,10 @@ function App() {
 
 
 
-     <Box display='flex' position='absolute' overflow='auto' height='90%'>
+     <Box display='flex' position='absolute' overflow='auto' sx={{'&::-webkit-scrollbar': {
+      width: '0.1em',
+      backgroundColor: '#F5F5F5',
+    }}} height='90%'>
 
      
         <Box flex='1' minHeight={500} sx={{padding:'8px'}} >

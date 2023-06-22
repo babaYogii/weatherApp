@@ -69,7 +69,10 @@ const MainComponent = (location) => {
   return (
     <Grid container spacing={5}
     sx={{
-    overscrollBehaviorInline:'contain',height:'fit-content', overflow:'auto',}}
+    overscrollBehaviorInline:'contain',height:'fit-content', overflow:'auto','&::-webkit-scrollbar': {
+      width: '0.1em',
+      backgroundColor: '#F5F5F5',
+    }}}
     >
 
 
