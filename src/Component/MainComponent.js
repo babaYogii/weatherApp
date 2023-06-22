@@ -34,11 +34,22 @@ const MainComponent = (location) => {
         lang: 'en_US'
       },
       headers: {
-        'X-RapidAPI-Key': '6f45ab08afmshd00259be7cf8d30p188666jsneb0539fc4f03',
+        'X-RapidAPI-Key': '6f45ab08afmshd00259be7cf8d30p188666jsneb0539fc4f0',
         'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
       }
     };
-
+    // const options = {
+    //   method: 'GET',
+    //   url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
+    //   params: {
+    //     query: location
+    //   },
+    //   headers: {
+    //     'X-RapidAPI-Key': '6f45ab08afmshd00259be7cf8d30p188666jsneb0539fc4f03',
+    //     'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+    //   }
+    // };
+    
     try {
       const response = await axios.request(options);
       setData(response.data.data)
@@ -51,13 +62,13 @@ const MainComponent = (location) => {
 
   useEffect(() => {
     handelSearch()
-  }, [location, handelSearch])
+  }, [ handelSearch])
   console.log(data)
 
 
   return (
     <Grid container spacing={5}
-
+        overflow='auto'
     >
 
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button, FormControlLabel, FormGroup, Grid, Switch } from '@mui/material'
+import { Button, FormControlLabel, FormGroup, Box, Switch } from '@mui/material'
 import MainComponent from './Component/MainComponent'
 
 function App() {
@@ -68,14 +68,12 @@ function App() {
 
 
 
-      <Grid container spacing={2}
-    sx={{overscrollBehaviorInline:'contain',height:'90%', overflow:'auto','&::-webkit-scrollbar': {
-      width: '0.1em',
-      backgroundColor: '#F5F5F5',
-    },}}
-      
-      >
-        <Grid item xs={4}  >
+     <Box display='flex'>
+
+     
+        <Box flex='1' minHeight={500}>
+
+        
           { data &&
         <FormGroup sx={{alignContent:'center'}}>
           <FormControlLabel
@@ -153,16 +151,16 @@ function App() {
           }
         </div>}
 
-        </Grid>
-        <Grid item xs={8}  >
-         
-         
+        </Box>
+
+        <Box sx={{backgroundColor:"black",border:'2px solid red', height:'100%'}} flex='3'>
+
+                      
             <MainComponent location={location}/>
         
+         </Box>
 
-        </Grid>
-
-      </Grid>
+      </Box>
       
       
     </div>
