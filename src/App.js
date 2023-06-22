@@ -68,10 +68,10 @@ function App() {
 
 
 
-     <Box display='flex'>
+     <Box display='flex' position='absolute' overflow='auto' height='90%'>
 
      
-        <Box flex='1' minHeight={500}>
+        <Box flex='1' minHeight={500} sx={{padding:'8px'}} >
 
         
           { data &&
@@ -153,7 +153,7 @@ function App() {
 
         </Box>
 
-        <Box sx={{backgroundColor:"black",border:'2px solid red', height:'100%'}} flex='3'>
+        <Box sx={{ height:'100%' , padding:'8px'}} flex='3' >
 
                       
             <MainComponent location={location}/>

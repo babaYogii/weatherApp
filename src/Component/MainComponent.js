@@ -34,7 +34,7 @@ const MainComponent = (location) => {
         lang: 'en_US'
       },
       headers: {
-        'X-RapidAPI-Key': '6f45ab08afmshd00259be7cf8d30p188666jsneb0539fc4f0',
+        'X-RapidAPI-Key': '6f45ab08afmshd00259be7cf8d30p188666jsneb0539fc4f03',
         'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
       }
     };
@@ -68,7 +68,8 @@ const MainComponent = (location) => {
 
   return (
     <Grid container spacing={5}
-        overflow='auto'
+    sx={{
+    overscrollBehaviorInline:'contain',height:'fit-content', overflow:'auto',}}
     >
 
 
